@@ -7,6 +7,8 @@ using namespace std;
 
 int main() {
   ifstream ifs;
+  ofstream ofs;
+  ofs.open("D:\\Lexa_sdelal_fiziku");
   WIN32_FIND_DATA FindFileData;
 	HANDLE hf;
 	string path = "D:\\Sanya_sdelay_fiziku\\";
@@ -16,11 +18,24 @@ int main() {
 		do
 		{
 			path += FindFileData.cFileName;
-		  ifs.open(path.c_str());
-		  int n;
-		  ifs >> n;
-		  ifs.getline();
-		  for (int i = 0; i < n; i++)
+		 	ifs.open(path.c_str());
+			int n;
+		  	ifs >> n;
+		  	int k=0;
+		  	string s;
+		  	for (int i = 0; i < n; i++){
+				ifs.getline(s);
+				for (int i=0; i<s.find(','); i++){
+					ofs<<s[i];	
+				}
+				for  (int i=s.find(",")+1; i<s.size(); i++){
+					if (s[i]==':'){
+						if ((int)s[i-1]>(int)s[i+1])k+=3;
+						else if((int)s[i-1]==(int)s[i+1])k++;
+					}
+				}
+				ofs<<k;
+			}
 		  path = "D:\\Sanya_sdelay_fiziku\\";
 		}
 		while (FindNextFile(hf,&FindFileData) != 0);
