@@ -8,11 +8,11 @@ using namespace std;
 int main() {
   ifstream ifs;
   ofstream ofs;
-  ofs.open("D:\\Lexa_sdelal_fiziku", ofstream::app);
+  ofs.open("D:\\Lexa_sdelal_fiziku.csv", ofstream::app);
   WIN32_FIND_DATA FindFileData;
 	HANDLE hf;
 	string path = "D:\\Sanya_sdelay_fiziku\\";
-	hf = FindFirstFile("D:\\Sanya_sdelay_fiziku\\*.txt", &FindFileData);
+	hf = FindFirstFile("D:\\Sanya_sdelay_fiziku\\*.csv", &FindFileData);
 	if (hf!=INVALID_HANDLE_VALUE)
 	{
 		do
