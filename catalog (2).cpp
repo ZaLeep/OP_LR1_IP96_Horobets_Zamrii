@@ -29,7 +29,13 @@ int main() {
 				for (int i=0; i<s.find(","); i++){
 					ofs<<s[i];	
 				}
-				for  (int i=s.find(",")+1; i<s.size(); i++){
+				int i=s.find(",");
+				if((int)s[i+1]<48 || (int)s[i+1]>57){
+					ofs<<s[i++];
+					for (i; s[i]!=',' ; i++)
+					ofs<<s[i];
+				}
+				for  (i; i<s.size(); i++){
 					if (s[i]==':'){
 						if ((int)s[i-1]>(int)s[i+1])k+=3;
 						else if((int)s[i-1]==(int)s[i+1])k++;
