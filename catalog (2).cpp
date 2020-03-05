@@ -8,18 +8,17 @@ using namespace std;
 int main() {
   ifstream ifs;
   ofstream ofs;
-  ofs.open("C:\\Users\\lexa3\\OneDrive\\Рабочий стол\\git-playground-master\\nice-project\\OP_LR1_IP96_Horobets_Zamrii\\Lexa_sdelal_fiziku.csv");
+  ofs.open("C:\\Users\\home\\Documents\\GitHub\\OP_LR1_IP96_Horobets_Zamrii\\Lexa_sdelal_fiziku.csv");
   WIN32_FIND_DATA FindFileData;
 	HANDLE hf;
-	string path = "C:\\Users\\lexa3\\OneDrive\\Рабочий стол\\git-playground-master\\nice-project\\OP_LR1_IP96_Horobets_Zamrii\\Sanya_sdelay_fiziku\\";
-	hf = FindFirstFile("C:\\Users\\lexa3\\OneDrive\\Рабочий стол\\git-playground-master\\nice-project\\OP_LR1_IP96_Horobets_Zamrii\\Sanya_sdelay_fiziku\\*.csv", &FindFileData);
+	string path = "C:\\Users\\home\\Documents\\GitHub\\OP_LR1_IP96_Horobets_Zamrii\\Sanya_sdelay_fiziku\\";
+	hf = FindFirstFile("C:\\Users\\home\\Documents\\GitHub\\OP_LR1_IP96_Horobets_Zamrii\\Sanya_sdelay_fiziku\\*.csv", &FindFileData);
 	if (hf!=INVALID_HANDLE_VALUE)
 	{
 		do
 		{
 			path += FindFileData.cFileName;
 		 	ifs.open(path.c_str());
-		 	cout << FindFileData.cFileName ;
 			int n;
 		  	ifs >> n;
 		  	string s;
@@ -36,10 +35,10 @@ int main() {
 						else if((int)s[i-1]==(int)s[i+1])k++;
 					}
 				}
-				ofs<<" "<<k<<endl;
+				ofs<<";"<<k<<endl;
 			}
 			ifs.close();
-			path = "C:\\Users\\lexa3\\OneDrive\\Рабочий стол\\git-playground-master\\nice-project\\OP_LR1_IP96_Horobets_Zamrii\\Sanya_sdelay_fiziku\\";
+			path = "C:\\Users\\home\\Documents\\GitHub\\OP_LR1_IP96_Horobets_Zamrii\\Sanya_sdelay_fiziku\\";
 		}
 		while (FindNextFile(hf,&FindFileData) != 0);
 		FindClose(hf);
